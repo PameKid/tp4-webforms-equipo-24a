@@ -11,25 +11,25 @@ namespace tp_webform_equipo_24A
 {
 
 
-    public partial class Default
+    public partial class CanjearVoucher
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control txtVoucher.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtVoucher;
 
         /// <summary>
-        /// Control dgvProducto.
+        /// Control btnCanjear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvProducto;
+        protected global::System.Web.UI.WebControls.Button btnCanjear;
     }
 }

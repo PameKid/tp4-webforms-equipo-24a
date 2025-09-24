@@ -47,7 +47,7 @@ namespace tp_webform_equipo_24A
 
             negocio.Agregar(nuevo);
             string script = @"alert('REGISTRO EXITOSO.'); 
-                          window.location='Default.aspx';";
+                          window.location='CanjearVoucher.aspx';";
             ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
         }
 
@@ -61,7 +61,7 @@ namespace tp_webform_equipo_24A
             {
                 // Cliente ya existe 
                 string script = @"alert('El DNI ya está registrado.'); 
-                          window.location='Default.aspx';";
+                          window.location='CanjearVoucher.aspx';";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
 
             }

@@ -6,7 +6,7 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Ingresá tus datos</h2>
     <div class="row"></div>
         <div class="col-2"></div>

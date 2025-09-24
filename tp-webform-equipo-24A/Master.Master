@@ -12,19 +12,14 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-
-
-
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div style="background:#333;color:#fff;padding:10px;">
+            <h1>Promo Ganá!</h1>
+        </div>
+
+         <div class="container">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
         </div>
     </form>
-
-
-
-
 </body>
 </html>

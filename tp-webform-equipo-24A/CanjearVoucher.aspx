@@ -6,7 +6,7 @@
 
     <asp:TextBox ID="txtVoucher" class="form-control" runat="server"></asp:TextBox>
 
-    <asp:Button ID="btnCanjear" class="btn btn-primary" runat="server" Text="Button" />
+    <asp:Button ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" Text="Canjear" />
 
 </asp:Content>
     

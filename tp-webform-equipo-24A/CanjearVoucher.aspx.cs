@@ -28,7 +28,7 @@ namespace tp_webform_equipo_24A
                 Response.Redirect("paginasiguientePris");
             }
 
-            else { Response.Redirect("paginaerror");
+            else { Response.Redirect("PaginaError.aspx");
             }
         }
     }

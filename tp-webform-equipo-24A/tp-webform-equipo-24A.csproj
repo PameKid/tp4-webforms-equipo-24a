@@ -70,7 +70,11 @@
     <Content Include="CanjearVoucher.aspx" />
     <Content Include="Formulario.aspx" />
     <Content Include="Global.asax" />
+<<<<<<< HEAD
     <Content Include="PaginaError.aspx" />
+=======
+    <Content Include="SeleccionarProducto.aspx" />
+>>>>>>> 1872466a57d8f7d1068955497ec94f16afcabced
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +110,13 @@
       <DependentUpon>PaginaError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleccionarProducto.aspx.cs">
+      <DependentUpon>SeleccionarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarProducto.aspx.designer.cs">
+      <DependentUpon>SeleccionarProducto.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

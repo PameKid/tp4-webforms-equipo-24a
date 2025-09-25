@@ -70,11 +70,8 @@
     <Content Include="CanjearVoucher.aspx" />
     <Content Include="Formulario.aspx" />
     <Content Include="Global.asax" />
-<<<<<<< HEAD
     <Content Include="PaginaError.aspx" />
-=======
     <Content Include="SeleccionarProducto.aspx" />
->>>>>>> 1872466a57d8f7d1068955497ec94f16afcabced
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

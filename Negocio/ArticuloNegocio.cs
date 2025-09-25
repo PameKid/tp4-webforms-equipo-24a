@@ -22,10 +22,11 @@ namespace Negocio
             {
 
                 //datos.setearConsulta("select * from Articulos a INNER JOIN IMAGENES I on a.Id=i.IdArticulo");
-                datos.setearConsulta ("SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion," +
-                    "m.Id AS IdMarca, m.Descripcion AS Marca," +
-                    "c.Id AS IdCategoria, c.Descripcion AS Categoria," +
-                   "a.Precio  FROM ARTICULOS a INNER JOIN MARCAS m ON a.IdMarca = m.Id INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id");
+               datos.setearConsulta ("SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion,  " +
+                                      "m.Id AS IdMarca, m.Descripcion AS Marca," +
+                                      " c.Id AS IdCategoria, c.Descripcion AS Categoria," +
+                                      " a.Precio " +
+                                      "FROM ARTICULOS a INNER JOIN MARCAS m ON a.IdMarca = m.Id INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id");
                 
                    datos.ejecutarLectura();
 
@@ -36,14 +37,14 @@ namespace Negocio
                     articulo.Categoria = new Categoria();
 
                     articulo.Id = datos.Lector.GetInt32(0);
-                    articulo.CodArticulo = datos.Lector["Codigo"].ToString();
                     articulo.NombreArticulo = datos.Lector["Nombre"].ToString();
                     articulo.Descripcion = datos.Lector["Descripcion"].ToString();
-                    articulo.Marca.IdMarca = (int)datos.Lector["IdMarca"];
-                    articulo.Marca.Descripcion = datos.Lector["Marca"].ToString();
-                    articulo.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
-                    articulo.Categoria.Descripcion = datos.Lector["Categoria"].ToString();
+                    articulo.CodArticulo = datos.Lector["Codigo"].ToString();
                     articulo.Precio = Convert.ToDecimal(datos.Lector["Precio"]);
+                    articulo.Marca.Descripcion = datos.Lector["Marca"].ToString();
+                    articulo.Marca.IdMarca = (int)datos.Lector["IdMarca"];
+                    //articulo.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    //articulo.Categoria.Descripcion = datos.Lector["Categoria"].ToString();
 
                     articulo.Imagenes = imgNeg.listar(articulo.Id);
                     //articulo.Imagen = datos.Lector["ImagenUrl"].ToString();

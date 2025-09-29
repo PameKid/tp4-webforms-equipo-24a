@@ -7,6 +7,6 @@
         Error al cargar el voucher
     </p>
 
-    <asp:Button ID="btnRegresar" OnClick="btnRegresar_Click"  runat="server" Text="Regresar" />
+    <asp:Button ID="btnRegresar" class="btn btn-primary" OnClick="btnRegresar_Click"  runat="server" Text="Regresar" />
 
 </asp:Content>

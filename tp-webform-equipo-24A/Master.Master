@@ -29,9 +29,12 @@
     </form>
 
 
-    <footer>
+    <footer style="height: 100px; background-color: black; color: white;" >
         <hr>
-        footer(?
+        <p>
+            Integrantes: Elias /Pamela/Priscila 
+        </p>
+       
 
     </footer>
 

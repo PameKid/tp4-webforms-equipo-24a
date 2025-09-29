@@ -43,11 +43,11 @@ namespace Negocio
                     articulo.Precio = Convert.ToDecimal(datos.Lector["Precio"]);
                     articulo.Marca.Descripcion = datos.Lector["Marca"].ToString();
                     articulo.Marca.IdMarca = (int)datos.Lector["IdMarca"];
-                    //articulo.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
-                    //articulo.Categoria.Descripcion = datos.Lector["Categoria"].ToString();
+                    articulo.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    articulo.Categoria.Descripcion = datos.Lector["Categoria"].ToString();
 
                     articulo.Imagenes = imgNeg.listar(articulo.Id);
-                    //articulo.Imagen = datos.Lector["ImagenUrl"].ToString();
+                    
 
                     lista.Add(articulo);
 
@@ -86,7 +86,6 @@ namespace Negocio
 
                 datos.setearConsulta("INSERT INTO Imagenes (IdArticulo, ImagenUrl) " +
                      "VALUES ((SELECT MAX(Id) FROM Articulos), @UrlImagen)");
-                datos.setearParametro("@UrlImagen", nuevo.Imagen);
                 datos.ejecutarAccion();
             }
             catch (Exception ex) 
@@ -220,7 +219,7 @@ namespace Negocio
                     articulo.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
                     articulo.Categoria.Descripcion = datos.Lector["Categoria"].ToString();
                     articulo.Precio = Convert.ToDecimal(datos.Lector["Precio"]);
-                    articulo.Imagen = datos.Lector["ImagenUrl"].ToString();
+                
 
                     lista.Add(articulo);
 

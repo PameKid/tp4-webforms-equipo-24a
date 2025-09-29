@@ -25,7 +25,7 @@ namespace Negocio
 
                     imagenAuxiliar.IDimagen = (int)accesoDatos.Lector["Id"];
                     imagenAuxiliar.NumeroArticulo = (int)accesoDatos.Lector["IdArticulo"];
-                    imagenAuxiliar.UTlImagen = (string)accesoDatos.Lector["ImagenUrl"];
+                    imagenAuxiliar.UrlImagen = (string)accesoDatos.Lector["ImagenUrl"];
 
                     listaImagenes.Add(imagenAuxiliar);
                     
@@ -50,7 +50,7 @@ namespace Negocio
             {
                 datos.setearConsulta("insert into Imagenes (IdArticulo, ImagenURL) values (@Id,@url)");
                 datos.setearParametro("@Id", imagen.NumeroArticulo);
-                datos.setearParametro("@url", imagen.UTlImagen);
+                datos.setearParametro("@url", imagen.UrlImagen);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

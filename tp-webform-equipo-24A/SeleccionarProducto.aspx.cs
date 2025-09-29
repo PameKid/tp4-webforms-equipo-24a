@@ -11,17 +11,43 @@ namespace tp_webform_equipo_24A
 {
     public partial class SeleccionarProducto : System.Web.UI.Page
     {
+        public List<Articulo> listaProducto;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-        
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            if (!IsPostBack)
+            {
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                Articulo articulo = new Articulo();
 
-            List<Articulo> listaProducto = articuloNegocio.listarArticulos();
-            dgvProducto.DataSource = listaProducto;
-            dgvProducto.DataBind();
+                listaProducto = articuloNegocio.listarArticulos();
+                repRepetidor.DataSource = listaProducto;
+                repRepetidor.DataBind();
+                repRepetidor.ItemDataBound += RepeaterProducto_ItemDataBound;
+            }
+        }
 
-        
-    }
+        protected void RepeaterProducto_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Articulo articulo = (Articulo)e.Item.DataItem;
+
+                Repeater rptImagenes = (Repeater)e.Item.FindControl("RepeaterImagen");
+                if (rptImagenes != null && articulo.Imagenes != null)
+                {
+                    rptImagenes.DataSource = articulo.Imagenes;
+                    rptImagenes.DataBind();
+                }
+            }
+        }
+
+        protected void elijoEste_Click(object sender, EventArgs e)
+        {
+            string valor = ((Button)sender).CommandArgument;
+        }
     }
 }
+       
+            
+    

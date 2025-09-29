@@ -23,8 +23,7 @@ namespace Dominio
         [DisplayName("Descripción")]
         public string Descripcion { get; set; } 
 
-        public string Imagen {  get; set; }
-
+ 
         public List<Imagen> Imagenes { get; set; }  
 
         public string PrecioFormateado

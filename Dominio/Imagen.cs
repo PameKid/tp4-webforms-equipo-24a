@@ -11,6 +11,6 @@ namespace Dominio
     {
        public int IDimagen { get; set; }
        public int NumeroArticulo {  get; set; }
-       public string UTlImagen { get; set; }
+       public string UrlImagen { get; set; }
     }
 }

@@ -4,11 +4,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:TextBox ID="txtVoucher" class="form-control" runat="server"></asp:TextBox>
+    <div class="row">
+        <div class="col-4">
 
-    <asp:Button ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" Text="Canjear" />
+            <div class="mb-3">
+                <label class="form-label">Código de Voucher</label>
+                <asp:TextBox ID="txtVoucher" class="form-control" runat="server"></asp:TextBox>
+            </div>
+
+
+            <asp:Button ID="btnCanjear" class="btn btn-primary" OnClick="btnCanjear_Click" runat="server" Text="Canjear" />
+
+        </div>
+    </div>
 
 </asp:Content>
-    
-       
+
+
 

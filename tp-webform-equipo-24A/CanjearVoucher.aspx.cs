@@ -25,10 +25,10 @@ namespace tp_webform_equipo_24A
 
             if(disponible == true)
             {
-                Response.Redirect("paginasiguientePris");
+                Response.Redirect("SeleccionarProducto.aspx");
             }
 
-            else { Response.Redirect("paginaerror");
+            else { Response.Redirect("PaginaError.aspx");
             }
         }
     }

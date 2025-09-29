@@ -44,8 +44,8 @@
                             <asp:Button CssClass="btn btn-primary" Text="Elijo este" runat="server" CommandArgument='<%#Eval("Id")%>' CommandName="articuloId" OnClick="elijoEste_Click" ID="elijoEste" />
                         </div>
                     </div>
+                <br>
                 </ItemTemplate>
-
             </asp:Repeater>
         </div>
     </div>

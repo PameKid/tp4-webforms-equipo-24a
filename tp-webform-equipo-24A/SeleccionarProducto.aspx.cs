@@ -45,6 +45,7 @@ namespace tp_webform_equipo_24A
         protected void elijoEste_Click(object sender, EventArgs e)
         {
             string valor = ((Button)sender).CommandArgument;
+            Response.Redirect("Formulario.aspx");
         }
     }
 }

@@ -20,15 +20,17 @@ namespace tp_webform_equipo_24A
         {
             string codigo = txtVoucher.Text;
             VoucherNegocio voucher = new VoucherNegocio();
-           
+
             bool disponible = voucher.consultarVoucherDisponible(codigo);
 
-            if(disponible == true)
+            if (disponible == true)
             {
                 Response.Redirect("SeleccionarProducto.aspx");
             }
 
-            else { Response.Redirect("PaginaError.aspx");
+            else
+            {
+                Response.Redirect("PaginaError.aspx");
             }
         }
     }

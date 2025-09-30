@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,8 +12,10 @@ namespace tp_webform_equipo_24A
 {
     public partial class Formulario : System.Web.UI.Page
     {
+        public string IdArticulo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            IdArticulo = Session["idArticulo"] != null ? Session["idArticulo"].ToString() : "";
             if(!IsPostBack) {
                 txtDni.Text = "Ingrese su DNI";
             }

@@ -11,6 +11,7 @@ namespace tp_webform_equipo_24A
 {
     public partial class SeleccionarProducto : System.Web.UI.Page
     {
+       
         public List<Articulo> listaProducto;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,8 +45,9 @@ namespace tp_webform_equipo_24A
 
         protected void elijoEste_Click(object sender, EventArgs e)
         {
-            string valor = ((Button)sender).CommandArgument;
-            Response.Redirect("Formulario.aspx");
+             string valor = ((Button)sender).CommandArgument;
+            Session.Add("idArticulo", valor);
+           Response.Redirect("Formulario.aspx", false);
         }
     }
 }

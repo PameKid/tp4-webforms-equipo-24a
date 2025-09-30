@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class ClienteNegocio
     {
-        public void Agregar(cliente cliente)
+        public void Agregar(Cliente cliente)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -35,19 +35,24 @@ namespace Negocio
 
         }
 
-        public Boolean ObtenerPorDNI(string dni)
+        //Modicar el metodo de obtener por dni 
+
+
+        public Boolean ObtenerPorDNI(Cliente cliente)
         {
             //cliente cliente = new cliente();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("Select * from Clientes where Documento = @dni");
-                datos.setearParametro("@dni", dni);
+                datos.setearConsulta("select Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP from Clientes\r\n where Documento = @dni");
+                datos.setearParametro("@dni", cliente.Documento);
                 datos.ejecutarLectura();
 
                 if (datos.Lector.Read())
                 {
+                    cliente.ID = datos.Lector["id"].ToString();
+
                     return true;
                 }
 

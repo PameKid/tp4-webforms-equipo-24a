@@ -23,7 +23,7 @@ namespace tp_webform_equipo_24A
 
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
-            cliente nuevo = new cliente();  
+            Cliente nuevo = new Cliente();  
             ClienteNegocio negocio = new ClienteNegocio();
 
             if (string.IsNullOrWhiteSpace(txtDni.Text) ||
@@ -58,9 +58,10 @@ namespace tp_webform_equipo_24A
         {
             string dni = txtDni.Text.Trim();
             ClienteNegocio nuevo = new ClienteNegocio();
-           
+            Cliente cliente = new Cliente();    
+            cliente.Documento = txtDni.Text;
 
-            if (nuevo.ObtenerPorDNI(dni))
+            if (nuevo.ObtenerPorDNI(cliente))
             {
                 // Cliente ya existe 
                 string script = @"alert('El DNI ya está registrado.'); 

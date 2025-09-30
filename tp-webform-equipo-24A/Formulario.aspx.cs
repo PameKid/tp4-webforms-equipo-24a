@@ -13,9 +13,11 @@ namespace tp_webform_equipo_24A
     public partial class Formulario : System.Web.UI.Page
     {
         public string IdArticulo { get; set; }
+        public string codigo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             IdArticulo = Session["idArticulo"] != null ? Session["idArticulo"].ToString() : "";
+            codigo = Session["codigo"] != null ? Session["codigo"].ToString() : "";
             if(!IsPostBack) {
                 txtDni.Text = "Ingrese su DNI";
             }

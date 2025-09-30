@@ -60,9 +60,10 @@ namespace tp_webform_equipo_24A
 
             }
 
-            //capturo el producto seleccionado en la pagina actual
-            string idProducto = ((Button)sender).CommandArgument;
-            Response.Redirect("Formulario.aspx?codigo=" + codigo + "&idProducto=" + idProducto);
+            string valor = ((Button)sender).CommandArgument;
+            Session.Add("idArticulo", valor);
+            Session["codigo"] = codigo;
+            Response.Redirect("Formulario.aspx", false);
 
         }
     }

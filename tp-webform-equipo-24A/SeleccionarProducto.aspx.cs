@@ -16,6 +16,8 @@ namespace tp_webform_equipo_24A
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+            
             if (!IsPostBack)
             {
                 ArticuloNegocio articuloNegocio = new ArticuloNegocio();
@@ -45,9 +47,24 @@ namespace tp_webform_equipo_24A
 
         protected void elijoEste_Click(object sender, EventArgs e)
         {
-             string valor = ((Button)sender).CommandArgument;
+            string codigo = string.Empty;   
+
+            // Recupero el codigo del voucher de la pagina anterior
+            if (Request.QueryString["codigo"] != null)
+            {
+                 codigo = Request.QueryString["codigo"].ToString();
+            }
+            else
+            {
+                Response.Redirect("PaginaError.aspx");
+
+            }
+
+            string valor = ((Button)sender).CommandArgument;
             Session.Add("idArticulo", valor);
-           Response.Redirect("Formulario.aspx", false);
+            Session["codigo"] = codigo;
+            Response.Redirect("Formulario.aspx", false);
+
         }
     }
 }

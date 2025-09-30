@@ -51,11 +51,22 @@
         </div>
     </form>
 
+<<<<<<< HEAD
     
    <footer class="bg-dark text-white text-center py-3">
         <div class="container">
             <p class="mb-0">&copy; 2025 Promo Ganá - Desarrolado con ASP.NET </p>
         </div>
+=======
+
+    <footer style="height: 100px; background-color: black; color: white;" >
+        <hr>
+        <p>
+            Integrantes: Elias /Pamela/Priscila 
+        </p>
+       
+
+>>>>>>> a7e621db8652c191adbf40490b1f8d96b67f7f5e
     </footer>
 </body>
 </html>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -45,14 +46,21 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP from Clientes\r\n where Documento = @dni");
+                datos.setearConsulta("select id, Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP from Clientes\r\n where Documento = @dni");
                 datos.setearParametro("@dni", cliente.Documento);
                 datos.ejecutarLectura();
 
                 if (datos.Lector.Read())
                 {
-                    cliente.ID = datos.Lector["id"].ToString();
-
+                    cliente.ID = int.Parse(datos.Lector["id"].ToString());
+                    cliente.Documento = datos.Lector["Documento"].ToString();
+                    cliente.Nombre = datos.Lector["Nombre"].ToString();
+                    cliente.Apellido = datos.Lector["Apellido"].ToString();
+                    cliente.Email = datos.Lector["Email"].ToString();
+                    cliente.Direccion = datos.Lector["Direccion"].ToString() ;
+                    cliente.Ciudad = datos.Lector["Ciudad"].ToString();
+                    cliente.CP = datos.Lector["CP"].ToString();
+                    
                     return true;
                 }
 

@@ -66,9 +66,15 @@ namespace tp_webform_equipo_24A
             if (nuevo.ObtenerPorDNI(cliente))
             {
                 // Cliente ya existe 
-                string script = @"alert('El DNI ya está registrado.'); 
-                          window.location='CanjearVoucher.aspx';";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+                //string script = @"alert('El DNI ya está registrado.'); 
+                //          window.location='CanjearVoucher.aspx';";
+                //ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+                txtNombre.Text = cliente.Nombre;
+                txtApellido.Text = cliente.Apellido;
+                txtEmail.Text = cliente.Email;
+                txtDireccion.Text = cliente.Direccion;
+                txtCiudad.Text = cliente.Ciudad;
+                txtCP.Text = cliente.CP;
 
             }
         }

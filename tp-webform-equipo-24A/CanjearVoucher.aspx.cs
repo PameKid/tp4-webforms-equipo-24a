@@ -25,7 +25,7 @@ namespace tp_webform_equipo_24A
 
             if (disponible == true)
             {
-                Response.Redirect("SeleccionarProducto.aspx");
+                Response.Redirect("SeleccionarProducto.aspx?codigo=" + codigo);
             }
 
             else

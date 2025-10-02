@@ -12,6 +12,7 @@
     <style>
         html, body {
             height: 100%;
+            margin: 0;
             background-color: #f0f6ff;
         }
 
@@ -21,8 +22,20 @@
             min-height: 100vh;
         }
 
+        form#form1 {
+            flex: 1 0 auto; /* hace que el form ocupe todo el alto */
+            display: flex;
+            flex-direction: column;
+        }
+
         main {
-            flex: 1;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            flex-shrink: 0; 
         }
     </style>
 
@@ -47,9 +60,11 @@
 
 
     <form id="form1" runat="server">
-        <div class="container my-4">
+     <main class="flex-grow-1">
+            <div class="container my-4 d-flex flex-column justify-content-center" style="flex:1;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
         </div>
+      </main>
     </form>
 
 

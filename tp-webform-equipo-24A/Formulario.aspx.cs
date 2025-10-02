@@ -18,7 +18,9 @@ namespace tp_webform_equipo_24A
         {
             IdArticulo = Session["idArticulo"] != null ? Session["idArticulo"].ToString() : "";
             codigo = Session["codigo"] != null ? Session["codigo"].ToString() : "";
-            if(!IsPostBack) {
+            Response.Write("idArticulo: " + Session["idArticulo"] + "<br>");
+            Response.Write("codigo: " + Session["codigo"]);
+            if (!IsPostBack) {
                 txtDni.Text = "Ingrese su DNI";
             }
         }
@@ -50,7 +52,7 @@ namespace tp_webform_equipo_24A
             nuevo.Ciudad = txtCiudad.Text;
             nuevo.CP = txtCP.Text;
 
-            negocio.Agregar(nuevo);
+            negocio.Agregar(nuevo, codigo, IdArticulo);
             string script = @"alert('REGISTRO EXITOSO.'); 
                           window.location='CanjearVoucher.aspx';";
             ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
@@ -59,6 +61,13 @@ namespace tp_webform_equipo_24A
         protected void txtDni_TextChanged(object sender, EventArgs e)
         {
             string dni = txtDni.Text.Trim();
+
+            // Si borraron el DNI limpiamos los campos y volvemos a activar botones
+            if (string.IsNullOrEmpty(dni))
+            {
+                LimpiarCampos();
+            }
+
             ClienteNegocio nuevo = new ClienteNegocio();
             Cliente cliente = new Cliente();    
             cliente.Documento = txtDni.Text;
@@ -76,7 +85,45 @@ namespace tp_webform_equipo_24A
                 txtCiudad.Text = cliente.Ciudad;
                 txtCP.Text = cliente.CP;
 
+                DeshabilitarCampos();
+
             }
+            else {
+                LimpiarCampos();
+            }
+
+
+        }
+
+        protected void LimpiarCampos()
+        {
+            TextBox[] campos = { txtNombre, txtApellido, txtEmail, txtDireccion, txtCiudad, txtCP };
+
+            foreach (var campo in campos)
+            {
+                campo.Text = "";
+                campo.Enabled = true;
+            }
+
+            btnAceptar.Enabled = true;
+            chkAcepto.Enabled = true;
+            lblMensaje.Text = "";
+            return;
+        }
+
+        protected void DeshabilitarCampos()
+        {
+            // Deshabilitamos campos para que no puedan ingresar datos
+            txtNombre.Enabled = false;
+            txtApellido.Enabled = false;
+            txtEmail.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtCiudad.Enabled = false;
+            txtCP.Enabled = false;
+
+            // Deshabilitamos los botones
+            btnAceptar.Enabled = false;
+            chkAcepto.Enabled = false;
         }
     }
 }

@@ -19,6 +19,3 @@
     </div>
 
 </asp:Content>
-
-
-

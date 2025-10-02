@@ -5,19 +5,23 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Negocio
 {
     public class ClienteNegocio
     {
-        public void Agregar(Cliente cliente)
+        public void Agregar(Cliente cliente, String voucher, string codArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("insert into Clientes (Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) values (@documento,@nombre,@apellido,@email,@direccion,@ciudad,@cp)");
+                //datos.setearConsulta("insert into Clientes (Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) values (@documento,@nombre,@apellido,@email,@direccion,@ciudad,@cp)");
+                datos.setearConsulta("INSERT INTO Clientes (Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) " +
+                    "VALUES (@documento, @nombre, @apellido, @email, @direccion, @ciudad, @cp)");
+
                 datos.setearParametro("@documento", cliente.Documento);
                 datos.setearParametro("@nombre", cliente.Nombre);
                 datos.setearParametro("@apellido", cliente.Apellido);
@@ -26,11 +30,22 @@ namespace Negocio
                 datos.setearParametro("@ciudad", cliente.Ciudad);
                 datos.setearParametro("@cp", cliente.CP);
                 datos.ejecutarAccion();
+                datos.cerrarConexion();
+
+                datos.setearConsulta("UPDATE Vouchers SET IdCliente = (SELECT MAX(Id) FROM Clientes), FechaCanje = GETDATE(), IdArticulo = @IdArticulo " +
+                    "WHERE CodigoVoucher = @voucher AND IdCliente IS NULL");
+                datos.setearParametro("@voucher", voucher);
+                datos.setearParametro("@IdArticulo", codArticulo);
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
 
 

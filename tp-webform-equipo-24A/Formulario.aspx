@@ -16,37 +16,49 @@
         <div class="form-group">
         <label for="txtDni">DNI</label>
         <asp:TextBox ID="txtDni" runat="server" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtDni_TextChanged" />
+        <asp:RegularExpressionValidator ErrorMessage="Solo numeros" ControlToValidate="txtDni" ValidationExpression="^[0-9]+$" runat="server" ForeColor="Red" Display="Dynamic"/>
     </div>
 
     <div class="form-group">
         <label for="txtNombre">Nombre</label>
         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" />
+        <asp:RegularExpressionValidator ErrorMessage="Solo letras permitidas" ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z]+$" runat="server" 
+ ForeColor="Red" Display="Dynamic" />
     </div>
 
     <div class="form-group">
         <label for="txtApellido">Apellido</label>
         <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" />
+        <asp:RegularExpressionValidator ErrorMessage="Solo letras permitidas" ControlToValidate="txtApellido" ValidationExpression="^[a-zA-Z]+$" runat="server" 
+ForeColor="Red" Display="Dynamic" />
     </div>
 
     <div class="form-group">
         <label for="txtEmail">Email</label>
         <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" type="email" />
+        <asp:RegularExpressionValidator ErrorMessage="Formato incorrecto" ControlToValidate="txtEmail" ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" runat="server" 
+            ForeColor="Red" Display="Dynamic"/>
     </div>
 
     <div class="form-group">
         <label for="txtDireccion">Dirección</label>
         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" />
         <asp:Label ID="lblDireccionError" runat="server" CssClass="error" Text="Falta dirección." Visible="false"></asp:Label>
+        <asp:RegularExpressionValidator ErrorMessage="Formato incorrecto" ControlToValidate="txtDireccion" ValidationExpression="^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+ \d{1,5}$" runat="server" 
+    ForeColor="Red" Display="Dynamic"/>
     </div>
 
     <div class="form-group">
         <label for="txtCiudad">Ciudad</label>
         <asp:TextBox ID="txtCiudad" runat="server" CssClass="form-control" />
+        <asp:RegularExpressionValidator ErrorMessage="Formato incorrecto" ControlToValidate="txtCiudad" ValidationExpression="^[A-Za-záéíóúÁÉÍÓÚñÑ0-9\s]+$" runat="server" 
+ForeColor="Red" Display="Dynamic"/>
     </div>
 
     <div class="form-group">
         <label for="txtCP">CP</label>
         <asp:TextBox ID="txtCP" runat="server" CssClass="form-control" />
+        <asp:RegularExpressionValidator ErrorMessage="Solo numeros" ControlToValidate="txtCP" ValidationExpression="^[0-9]+$" runat="server" ForeColor="Red" Display="Dynamic"/>
     </div>
 
     <div class="form-group">

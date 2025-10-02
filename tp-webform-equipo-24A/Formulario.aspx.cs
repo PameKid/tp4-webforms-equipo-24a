@@ -20,14 +20,15 @@ namespace tp_webform_equipo_24A
             codigo = Session["codigo"] != null ? Session["codigo"].ToString() : "";
             Response.Write("idArticulo: " + Session["idArticulo"] + "<br>");
             Response.Write("codigo: " + Session["codigo"]);
-            if (!IsPostBack) {
+            if (!IsPostBack)
+            {
                 txtDni.Text = "Ingrese su DNI";
             }
         }
 
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
-            Cliente nuevo = new Cliente();  
+            Cliente nuevo = new Cliente();
             ClienteNegocio negocio = new ClienteNegocio();
 
             if (string.IsNullOrWhiteSpace(txtDni.Text) ||
@@ -45,12 +46,19 @@ namespace tp_webform_equipo_24A
             }
 
             nuevo.Documento = txtDni.Text;
-            nuevo.Nombre = txtNombre.Text;  
+            nuevo.Nombre = txtNombre.Text;
             nuevo.Apellido = txtApellido.Text;
             nuevo.Email = txtEmail.Text;
             nuevo.Direccion = txtDireccion.Text;
             nuevo.Ciudad = txtCiudad.Text;
             nuevo.CP = txtCP.Text;
+
+            if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(IdArticulo))
+            {
+                string script2 = @"alert('Te falta el voucher o seleccionar articulo.'); 
+                          window.location='CanjearVoucher.aspx';";
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", script2, true);
+            }
 
             negocio.Agregar(nuevo, codigo, IdArticulo);
             string script = @"alert('REGISTRO EXITOSO.'); 
@@ -69,7 +77,7 @@ namespace tp_webform_equipo_24A
             }
 
             ClienteNegocio nuevo = new ClienteNegocio();
-            Cliente cliente = new Cliente();    
+            Cliente cliente = new Cliente();
             cliente.Documento = txtDni.Text;
 
             if (nuevo.ObtenerPorDNI(cliente))
@@ -88,8 +96,10 @@ namespace tp_webform_equipo_24A
                 DeshabilitarCampos();
 
             }
-            else {
+            else
+            {
                 LimpiarCampos();
+                HabilitarCampos();
             }
 
 
@@ -124,6 +134,21 @@ namespace tp_webform_equipo_24A
             // Deshabilitamos los botones
             btnAceptar.Enabled = false;
             chkAcepto.Enabled = false;
+        }
+
+        protected void HabilitarCampos()
+        {
+            // habilitamos campos para que puedan ingresar datos
+            txtNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            txtEmail.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtCiudad.Enabled = true;
+            txtCP.Enabled = true;
+
+            // habilitamos los botones
+            btnAceptar.Enabled = true;
+            chkAcepto.Enabled = true;
         }
     }
 }

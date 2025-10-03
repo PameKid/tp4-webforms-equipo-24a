@@ -20,6 +20,7 @@ namespace tp_webform_equipo_24A
             codigo = Session["codigo"] != null ? Session["codigo"].ToString() : "";
             Response.Write("idArticulo: " + Session["idArticulo"] + "<br>");
             Response.Write("codigo: " + Session["codigo"]);
+           
             if (!IsPostBack)
             {
                 txtDni.Text = "Ingrese su DNI";
@@ -57,6 +58,8 @@ namespace tp_webform_equipo_24A
             {
                 string script2 = @"alert('Te falta el voucher o seleccionar articulo.'); 
                           window.location='CanjearVoucher.aspx';";
+
+                //manda al front desde el back una ejecución de java
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", script2, true);
             }
 
@@ -132,8 +135,8 @@ namespace tp_webform_equipo_24A
             txtCP.Enabled = false;
 
             // Deshabilitamos los botones
-            btnAceptar.Enabled = false;
-            chkAcepto.Enabled = false;
+            btnAceptar.Enabled = true;
+            chkAcepto.Enabled = true;
         }
 
         protected void HabilitarCampos()

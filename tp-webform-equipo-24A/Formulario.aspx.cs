@@ -56,17 +56,11 @@ namespace tp_webform_equipo_24A
 
             if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(IdArticulo))
             {
-                string script2 = @"alert('Te falta el voucher o seleccionar articulo.'); 
-                          window.location='CanjearVoucher.aspx';";
-
-                //manda al front desde el back una ejecución de java
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", script2, true);
+                Response.Redirect("PaginaError.aspx");
             }
 
             negocio.Agregar(nuevo, codigo, IdArticulo);
-            string script = @"alert('REGISTRO EXITOSO.'); 
-                          window.location='CanjearVoucher.aspx';";
-            ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+            Response.Redirect("PaginaExito.aspx");
         }
 
         protected void txtDni_TextChanged(object sender, EventArgs e)
@@ -86,9 +80,6 @@ namespace tp_webform_equipo_24A
             if (nuevo.ObtenerPorDNI(cliente))
             {
                 // Cliente ya existe 
-                //string script = @"alert('El DNI ya está registrado.'); 
-                //          window.location='CanjearVoucher.aspx';";
-                //ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
                 txtNombre.Text = cliente.Nombre;
                 txtApellido.Text = cliente.Apellido;
                 txtEmail.Text = cliente.Email;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PaginaError.aspx.cs" Inherits="tp_webform_equipo_24A.PaginaError" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="PaginaExito.aspx.cs" Inherits="tp_webform_equipo_24A.PaginaExito" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -14,8 +14,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
             <div class="text-center">
-                <i class="bi bi-x-circle-fill text-danger" style="font-size: 5rem;"></i>
-                <h3 class="text-danger mt-2">Error al cargar el voucher</h3>
+                <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                <h2 class="mt-3 text-success">¡Registro correcto!</h2>
             </div>
 
         

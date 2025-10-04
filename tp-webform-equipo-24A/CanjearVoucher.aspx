@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+      <h1>Portal de canje de Voucher</h1>
     <div class="row">
         <div class="col-4">
 

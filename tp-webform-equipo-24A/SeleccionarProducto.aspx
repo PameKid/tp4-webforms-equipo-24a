@@ -4,6 +4,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+    .btn-elegir {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+        width: auto;
+        display: block;
+        margin: 8px auto;
+    }
+</style>
 
     <h1>Productos</h1>
 
@@ -25,7 +34,7 @@
                                         <ItemTemplate>
                                             <div class='carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>'>
                                                 <asp:Image ID="Image" runat="server" CssClass="d-block w-100 img-carousel"
-                                                    ImageUrl='<%#Eval("UrlImagen")%>' style="max-height:300px; object-fit:contain;"/>
+                                                    ImageUrl='<%#Eval("UrlImagen")%>' Style="max-height: 300px; object-fit: contain;" />
                                             </div>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -41,10 +50,17 @@
                             </div>
 
                             <p></p>
-                            <asp:Button CssClass="btn btn-primary" Text="Elijo este" runat="server" CommandArgument='<%#Eval("Id")%>' CommandName="articuloId" OnClick="elijoEste_Click" ID="elijoEste" />
+                            <asp:Button
+                                CssClass="btn btn-primary btn-elegir"
+                                Text="Elijo este"
+                                runat="server"
+                                CommandArgument='<%#Eval("Id")%>'
+                                CommandName="articuloId"
+                                OnClick="elijoEste_Click"
+                                ID="elijoEste" />
                         </div>
                     </div>
-                <br>
+                    <br>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
